@@ -656,6 +656,11 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 8338988565940894141}
+    - target: {fileID: 2070925441746177913, guid: a1a802ecaf6775746bb2a929fb554ad8,
+        type: 3}
+      propertyPath: m_LookAt
+      value: 
+      objectReference: {fileID: 3893294199704312411}
     - target: {fileID: 6656539253773781268, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -749,7 +754,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437574825}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.18458134, y: 0.08473273, z: 4.4812365}
@@ -824,6 +829,7 @@ GameObject:
   - component: {fileID: 1903274339}
   - component: {fileID: 1903274338}
   - component: {fileID: 1903274337}
+  - component: {fileID: 1903274343}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Ai
@@ -843,13 +849,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67cd2698be731540a71e74256058398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correction: {x: 0, y: 1, z: 0}
   Player: {fileID: 3893294199704312411}
   die: 0
   hit: 0
-  rotationSpeed: 5
-  moveSpeed: 5
+  atkCollier: {fileID: 1903274343}
+  animator: {fileID: 2060772145}
+  rotationSpeed: 8
+  moveSpeed: 1.5
   direction: {x: 0, y: 0, z: 0}
   maxDistance: 10
+  atkDistance: 1
+  atk: 0
+  walk: 0
 --- !u!54 &1903274338
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -938,7 +950,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903274336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.46, y: 1.66, z: 8.55}
+  m_LocalPosition: {x: 1, y: 1, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -946,6 +958,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1903274343
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903274336}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.6300676, z: 0.5696993}
+  m_Center: {x: 0, y: 0, z: -0.5}
 --- !u!1 &1904834836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,6 +1068,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2039041663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2070925441746177671, guid: a1a802ecaf6775746bb2a929fb554ad8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1284471177}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2039041666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039041663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 257
+  m_IgnoreTag: Player
+  m_TransparentLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_MinimumDistanceFromTarget: 0.1
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_MinimumOcclusionTime: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 1
+  m_MaximumEffort: 4
+  m_SmoothingTime: 0
+  m_Damping: 0
+  m_DampingWhenOccluded: 0
+  m_OptimalTargetDistance: 0
 --- !u!1 &2060772143 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fb0301b2594fd3b4394d3c7feb50ac7b,
