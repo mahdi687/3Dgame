@@ -11,23 +11,20 @@ public class Weapons : MonoBehaviour
     public Projectile Bullet;
     bool sword;
     bool gun;
-    
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        
+        Time.timeScale = 1f;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                zombie.hit = true;
-                animator.SetTrigger("Slash");
-                Invoke("resetHit", 0.5f);
+                zombie.hit = true;              //the player is now attacking and the zombie can be hit
+                animator.SetTrigger("Slash");   //trigger player slash animation 
+                Invoke("resetHit", 1f);         //reset hit after 0.5 seconds => player is not attacking
             }  
     }
 
