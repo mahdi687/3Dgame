@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Weapons : MonoBehaviour
 {
+    [Header("General")]
     [SerializeField] Animator animator;
-    [SerializeField] GameObject Sword;
-    [SerializeField] GameObject Gun;
     public ZombieAi zombie;
-    public Projectile Bullet;
+    [Header("Weapons")]
+    [SerializeField] GameObject Sword;
     bool sword;
+    [SerializeField] GameObject Gun;
     bool gun;
+    public Projectile Bullet;
 
     private void Awake()
     {
