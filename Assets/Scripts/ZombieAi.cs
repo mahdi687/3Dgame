@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem.Processors;
 
 public class ZombieAi : MonoBehaviour
 {
@@ -14,9 +17,11 @@ public class ZombieAi : MonoBehaviour
     [Header("Global Variables")]
     public Vector3 correction = new Vector3(0f, 1f, 0f);   //correction to the target position    
     public Transform Player;    //player gameobject to follow
-    public bool die;            //check if this zombie is dead
+    public bool die;
+    public bool dead;//check if this zombie is dead
     public bool hit;            //if is true then zombie is dead // used in weapons(sword) script
     public BoxCollider atkCollier;
+    public GameObject gameOver;
 
 
     private void Awake()
@@ -44,6 +49,11 @@ public class ZombieAi : MonoBehaviour
             Invoke("waitForAtk", 2f);
         }
         death();
+
+        if (dead && Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
     
     void waitForAtk()
@@ -128,6 +138,8 @@ public class ZombieAi : MonoBehaviour
         {
             Debug.Log("Game Over");
             Time.timeScale = 0f;
+            gameOver.SetActive(true);
+            dead = true; 
         }
     }
 
@@ -138,4 +150,7 @@ public class ZombieAi : MonoBehaviour
         Gizmos.DrawLine(transform.position, Player.position + correction);
 
     }
+   
+
+
 }
