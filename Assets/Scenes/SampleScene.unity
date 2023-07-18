@@ -2959,6 +2959,11 @@ PrefabInstance:
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 1829086569}
+    - target: {fileID: 5265211150140525253, guid: 6da57f9c7ef691f4099177c97b4a0785,
+        type: 3}
+      propertyPath: atkDistance
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6da57f9c7ef691f4099177c97b4a0785, type: 3}
 --- !u!4 &1616023468 stripped

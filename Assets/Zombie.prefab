@@ -133,14 +133,16 @@ MonoBehaviour:
   correction: {x: 0, y: 1, z: 0}
   Player: {fileID: 0}
   die: 0
+  dead: 0
   hit: 0
   atkCollier: {fileID: 5265211150140525251}
+  gameOver: {fileID: 0}
   animator: {fileID: 5265211149949337749}
   rotationSpeed: 8
   moveSpeed: 1.5
   direction: {x: 0, y: 0, z: 0}
   maxDistance: 10
-  atkDistance: 1
+  atkDistance: 3
   atk: 0
   walk: 0
 --- !u!65 &5265211150140525251
